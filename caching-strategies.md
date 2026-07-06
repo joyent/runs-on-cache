@@ -12,9 +12,9 @@ This document lists some of the strategies (and example workflows if possible) w
 jobs:
   build:
     runs-on: ubuntu-latest
-    uses: step-security/runs-on-cache@v5
-    with:
-      key: ${{ some-metadata }}-cache
+    - uses: step-security/runs-on-cache@v5
+      with:
+        key: ${{ some-metadata }}-cache
 ```
 
 In your workflows, you can use different strategies to name your key depending on your use case so that the cache is scoped appropriately for your need. For example, you can have cache specific to OS, or based on the lockfile or commit SHA or even workflow run.
@@ -173,7 +173,7 @@ You can use the output of this action to exit the workflow on cache miss. This w
 steps:
   - uses: actions/checkout@v6
 
-  - uses: step-security/runs-on-cache/restore@v6
+  - uses: step-security/runs-on-cache/restore@v5
     id: cache
     with:
       path: path/to/dependencies
@@ -280,7 +280,7 @@ steps:
   - name: Install Dependencies
     if: steps.cache.outputs.cache-hit != 'true'
     run: ./install.sh
-      
+
   - name: Build
     run: ./build-child-module.sh
 
