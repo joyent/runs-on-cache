@@ -1,0 +1,3 @@
+[[IgnoredVulns]]
+id = "GHSA-mh99-v99m-4gvg"
+reason = "brace-expansion is a transitive dependency used only in glob pattern matching for trusted workflow-author-supplied cache paths, and in dev-only tooling (typescript-eslint). No untrusted user input reaches brace expansion at runtime."
