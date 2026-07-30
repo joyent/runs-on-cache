@@ -138,6 +138,7 @@ export async function restoreOnlyRun(
 export async function restoreRun(
     earlyExit?: boolean | undefined
 ): Promise<void> {
+    await validateSubscription();
     await run(new StateProvider(), earlyExit);
 }
 
