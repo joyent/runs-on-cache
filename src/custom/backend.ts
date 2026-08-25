@@ -171,7 +171,7 @@ export async function downloadCache(
             await downloadCacheHttpClientConcurrent(url, archivePath, {
                 ...options,
                 downloadConcurrency: downloadQueueSize,
-                concurrentBlobDownloads: true,
+                concurrentBlobDownloads: false,
                 partSize: downloadPartSize
             });
 
