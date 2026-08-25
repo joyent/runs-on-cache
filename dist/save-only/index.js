@@ -77777,7 +77777,7 @@ function downloadCache(archiveLocation, archivePath, options) {
                 const url = yield getSignedUrl(s3Client, command, {
                     expiresIn: 3600
                 });
-                yield (0, downloadUtils_1.downloadCacheHttpClientConcurrent)(url, archivePath, Object.assign(Object.assign({}, options), { downloadConcurrency: downloadQueueSize, concurrentBlobDownloads: true, partSize: downloadPartSize }));
+                yield (0, downloadUtils_1.downloadCacheHttpClientConcurrent)(url, archivePath, Object.assign(Object.assign({}, options), { downloadConcurrency: downloadQueueSize, concurrentBlobDownloads: false, partSize: downloadPartSize }));
                 // If we get here, download succeeded
                 return;
             }
